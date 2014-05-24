@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="css/use_all.css" />
+<link rel="stylesheet" href="css/style.css" />
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/recruit.ui.js"></script>
+<script src="js/beauty.ui.js"></script>
+<script src="js/myScript.js"></script>
+<title>Beauty Search</title>
+</head>
+
+<body>
+	<div id="container">
+    	<div id="form-block">
+        	<div id="form-block-inner">
+            	<form>
+                    <div class="ui-block">
+                        <label>エリア</label>
+                        <select id="bty-service-area-sel"></select>
+                    </div>
+
+                    <div class="ui-block">
+                        <label>&nbsp;</label>
+                        <select id="bty-middle-area-sel"></select>
+                    </div>
+
+                    <div class="ui-block">
+                        <label>&nbsp;</label>
+                        <select id="bty-small-area-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>キーワード</label>
+                        <input type="text" name="keyword" />
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>イメージ</label>
+                        <select id="bty-hair-image-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>髪の長さ</label>
+                        <select id="bty-hair-length-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>髪の量</label>
+                        <select id="bty-hair-ryou-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>髪の質</label>
+                        <select id="bty-hair-shitsu-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>髪の太さ</label>
+                        <select id="bty-hair-futosa-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>髪のクセ</label>
+                        <select id="bty-hair-kuse-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>顔型</label>
+                        <select id="bty-hair-kaogata-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>こだわり</label>
+                        <table>
+                            <tr><td><div id="bty-kodawari-checkbox"></div></td></tr>
+                        </table>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>こだわり設備</label>
+                        <table>
+                            <tr><td><div id="bty-kodawari-setsubi-checkbox"></div></td></tr>
+                        </table>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>こだわりメニュ</label>
+                        <select id="bty-kodawari-menu-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>並び順</label>
+                        <select id="bty-order-sel"></select>
+                    </div>
+
+                    <br />
+
+                    <div class="ui-block">
+                        <label>&nbsp;</label>
+                        <input type="submit" value="検索" />
+                    </div>
+
+                    <input type="hidden" name="count" value="20" />
+                </form>
+            </div>
+        </div>
+
+        <div id="result-block">
+        	<div id="result-block-inner">
+            	<div id="rui-page"></div>
+                <div id="rui-result"></div>
+                <div id="rui-page-foot"></div>
+            </div>
+        </div>
+    </div>
+
+<!-- RUI TRUNCATE START -->
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-799005-2");
+	pageTracker._initData();
+	pageTracker._trackPageview();
+</script>
+<!-- RUI TRUNCATE END -->
+</body>
+</html>

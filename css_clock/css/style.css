@@ -1,0 +1,467 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+div{
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
+.main{
+	min-width: 680px;
+	width: 100%;
+	min-height: 680px;
+	height: 100%;
+}
+
+
+/*中心位置を定める*/
+.clock_center{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+
+
+/*数字の配置の基準の設定（１２時の位置）*/
+.numpos{
+	top: -300px;
+}
+
+
+/*それぞれの数字のスタイル*/
+.num{
+	left: -50px;
+	top: -50px;
+	width: 100px;
+	height: 100px;
+	text-align:center;
+	font-size: 80px;
+	line-height: 100px;
+	color: #778;
+}
+
+
+/*時計の配置*/
+.c1{
+	-webkit-transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+.c2{
+	-webkit-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+}
+
+.c3{
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+}
+
+.c4{
+	-webkit-transform: rotate(120deg);
+	-moz-transform: rotate(120deg);
+}
+
+.c5{
+	-webkit-transform: rotate(150deg);
+	-moz-transform: rotate(150deg);
+}
+
+.c6{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+}
+
+.c7{
+	-webkit-transform: rotate(210deg);
+	-moz-transform: rotate(210deg);
+}
+
+.c8{
+	-webkit-transform: rotate(240deg);
+	-moz-transform: rotate(240deg);
+}
+
+.c9{
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+}
+
+.c10{
+	-webkit-transform: rotate(300deg);
+	-moz-transform: rotate(300deg);
+}
+
+.c11{
+	-webkit-transform: rotate(330deg);
+	-moz-transform: rotate(330deg);
+}
+
+.c12{
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+}
+
+
+/*数字の傾き調整*/
+.c1 .num{
+	-webkit-transform: rotate(-30deg);
+	-moz-transform: rotate(-30deg);
+}
+
+.c2 .num{
+	-webkit-transform: rotate(-60deg);
+	-moz-transform: rotate(-60deg);
+}
+
+.c3 .num{
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+}
+
+.c4 .num{
+	-webkit-transform: rotate(-120deg);
+	-moz-transform: rotate(-120deg);
+}
+
+.c5 .num{
+	-webkit-transform: rotate(-150deg);
+	-moz-transform: rotate(-150deg);
+}
+
+.c6 .num{
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+}
+
+.c7 .num{
+	-webkit-transform: rotate(-210deg);
+	-moz-transform: rotate(-210deg);
+}
+
+.c8 .num{
+	-webkit-transform: rotate(-240deg);
+	-moz-transform: rotate(-240deg);
+}
+
+.c9 .num{
+	-webkit-transform: rotate(-270deg);
+	-moz-transform: rotate(-270deg);
+}
+
+.c10 .num{
+	-webkit-transform: rotate(-300deg);
+	-moz-transform: rotate(-300deg);
+}
+
+.c11 .num{
+	-webkit-transform: rotate(-330deg);
+	-moz-transform: rotate(-330deg);
+}
+
+.c12 .num{
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+}
+
+
+
+
+/*矢印ボタンのスタイル*/
+div .up, div .down{
+	width: 100px;
+	height: 100px;
+	font-size: 50px;
+	text-align: center;
+	line-height: 100px;
+	z-index: 20;
+	top: -40px;
+	opacity: 0.1;
+	cursor: default;
+	
+	-webkit-transition: opacity 0.1s linear;
+	-moz-transition: opacity 0.1s linear;
+}
+
+div .up{
+	left: 0;
+}
+
+div .down{
+	left: -100px;
+}
+
+div .up:hover, div .down:hover{
+	opacity: 0.5;
+}
+
+div .up:active, div .down:active{
+	color: blue;
+}
+
+
+/*upボタンを押した場合、時計の針を進める*/
+div .up:active ~ .ajust_hour{
+	-webkit-animation-play-state: running;
+	-moz-animation-play-state: running;
+}
+
+div .up:active ~ .ajust_min{
+	-webkit-animation-play-state: running;
+	-moz-animation-play-state: running;
+}
+
+
+/*downボタンを押した場合、時計の針を戻す*/
+div .down:active ~ .ajust_hour_minus{
+	-webkit-animation-play-state: running;
+	-moz-animation-play-state: running;
+}
+
+div .down:active ~ .ajust_min_minus{
+	-webkit-animation-play-state: running;
+	-moz-animation-play-state: running;
+}
+
+
+/*秒針のスタイル・アニメーション設定*/
+.arrow_hour, .arrow_min, .arrow_sec{
+	position: absolute;
+	background: black;
+	box-shadow: white 0 0 20px;
+	opacity: 0.6;
+}
+
+.arrow_min{
+	left: -10px;
+	top: -10px;
+	width: 300px;
+	height: 20px;
+	border-radius: 10px;
+	
+	-webkit-transform-origin: 10px 10px;
+	
+	-moz-transform-origin: 10px 10px;
+	
+	-webkit-animation-name: clockarrow;
+	-webkit-animation-duration: 3600s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	
+	-moz-animation-name: clockarrow;
+	-moz-animation-duration: 3600s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-duration: 0s;
+	-moz-animation-iteration-count: infinite;
+}
+
+.arrow_hour{
+	left: -12px;
+	top: -12px;
+	width: 180px;
+	height: 24px;
+	border-radius: 12px;
+	
+	-webkit-transform-origin: 12px 12px;
+	
+	-moz-transform-origin: 12px 12px;
+	
+	-webkit-animation-name: clockarrow;
+	-webkit-animation-duration: 43200s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	
+	-moz-animation-name: clockarrow;
+	-moz-animation-duration: 3600s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-duration: 0s;
+	-moz-animation-iteration-count: infinite;
+}
+
+.arrow_sec{
+	left: -5px;
+	top: -5px;
+	width: 300px;
+	height: 10px;
+	border-radius: 5px;
+	
+	-webkit-transform-origin: 5px 5px;
+	
+	-moz-transform-origin: 5px 5px;
+	
+	-webkit-animation-name: clockarrow;
+	-webkit-animation-duration: 60s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	
+	-moz-animation-name: clockarrow;
+	-moz-animation-duration: 3600s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-duration: 0s;
+	-moz-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes clockarrow{
+	0%{
+		-webkit-transform: rotate(-90deg);
+	}
+	100%{
+		-webkit-transform: rotate(270deg);
+	}
+}
+
+.oscillation{
+	-webkit-animation-name: oscillation;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	
+	
+	-moz-animation-name: oscillation;
+	-moz-animation-duration: 1s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-duration: 0s;
+	-moz-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes oscillation{
+	0%{
+		-webkit-transform: rotate(0deg);
+	}
+	5%{
+		-webkit-transform: rotate(5.7deg);
+	}
+	10%{
+		-webkit-transform: rotate(7.2deg);
+	}
+	15%{
+		-webkit-transform: rotate(5.1deg);
+	}
+	20%{
+		-webkit-transform: rotate(4.3deg);
+	}
+	25%{
+		-webkit-transform: rotate(4.5deg);
+	}
+	30%{
+		-webkit-transform: rotate(4.4deg);
+	}
+	35%{
+		-webkit-transform: rotate(3.9deg);
+	}
+	40%{
+		-webkit-transform: rotate(3.6deg);
+	}
+	45%{
+		-webkit-transform: rotate(3.3deg);
+	}
+	50%{
+		-webkit-transform: rotate(3deg);
+	}
+	100%{
+		-webkit-transform: rotate(0deg);
+	}
+}
+
+
+/*秒針を調整するときのアニメーション設定*/
+.ajust_hour{
+	-webkit-animation-name: ajust;
+	-webkit-animation-duration: 48s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	
+	-moz-animation-name: ajust;
+	-moz-animation-duration: 48s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-duration: 0s;
+	-moz-animation-iteration-count: infinite;
+	
+	-webkit-animation-play-state: paused;
+	
+	-moz-animation-play-state: paused;
+}
+
+.ajust_min{
+	-webkit-animation-name: ajust;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	
+	-moz-animation-name: ajust;
+	-moz-animation-duration: 4s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-duration: 0s;
+	-moz-animation-iteration-count: infinite;
+	
+	-webkit-animation-play-state: paused;
+	
+	-moz-animation-play-state: paused;
+}
+
+@-webkit-keyframes ajust{
+	0%{
+		-webkit-transform: rotate(0deg);
+	}
+	100%{
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+.ajust_hour_minus{
+	-webkit-animation-name: ajust_minus;
+	-webkit-animation-duration: 48s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	
+	-moz-animation-name: ajust;
+	-moz-animation-duration: 48s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-duration: 0s;
+	-moz-animation-iteration-count: infinite;
+	
+	-webkit-animation-play-state: paused;
+	
+	-moz-animation-play-state: paused;
+}
+
+.ajust_min_minus{
+	-webkit-animation-name: ajust_minus;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 0s;
+	-webkit-animation-iteration-count: infinite;
+	
+	-moz-animation-name: ajust;
+	-moz-animation-duration: 4s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-duration: 0s;
+	-moz-animation-iteration-count: infinite;
+	
+	-webkit-animation-play-state: paused;
+	
+	-moz-animation-play-state: paused;
+}
+
+@-webkit-keyframes ajust_minus{
+	0%{
+		-webkit-transform: rotate(0deg);
+	}
+	100%{
+		-webkit-transform: rotate(-360deg);
+	}
+}
